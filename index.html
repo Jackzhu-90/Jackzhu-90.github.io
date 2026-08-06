@@ -5,407 +5,154 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>朱鹏 - 生产总监 / 供应链管理专家</title>
 <style>
-/* ===== Reset & Base ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  --navy: #0a1628;
-  --navy-light: #132142;
-  --blue: #2563eb;
-  --blue-light: #3b82f6;
-  --gold: #d4a853;
-  --gold-light: #f0d78c;
-  --white: #ffffff;
-  --gray-100: #f1f5f9;
-  --gray-200: #e2e8f0;
-  --gray-300: #cbd5e1;
-  --gray-400: #94a3b8;
-  --gray-500: #64748b;
-  --gray-600: #475569;
-  --gray-700: #334155;
-  --gray-800: #1e293b;
-  --text: #1e293b;
-  --text-light: #64748b;
-  --radius: 12px;
+  --navy: #0a1628; --navy-light: #132142; --blue: #2563eb; --blue-light: #3b82f6;
+  --gold: #d4a853; --gold-light: #f0d78c; --white: #ffffff;
+  --gray-100: #f1f5f9; --gray-200: #e2e8f0; --gray-300: #cbd5e1;
+  --gray-400: #94a3b8; --gray-500: #64748b; --gray-600: #475569;
+  --gray-700: #334155; --gray-800: #1e293b; --text: #1e293b;
+  --text-light: #64748b; --radius: 12px;
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
-
 html { scroll-behavior: smooth; font-size: 16px; }
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  color: var(--text);
-  line-height: 1.7;
-  background: var(--gray-100);
-  overflow-x: hidden;
+  color: var(--text); line-height: 1.7; background: var(--gray-100); overflow-x: hidden;
 }
-
-/* ===== Navigation ===== */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: rgb(10 22 40 / 0.92);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgb(255 255 255 / 0.08);
-  transition: all 0.3s;
-  padding: 0 2rem;
+  background: rgb(10 22 40 / 0.92); backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgb(255 255 255 / 0.08); padding: 0 2rem;
 }
-
-.nav-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 64px;
-}
-
-.nav-logo {
-  font-size: 1.25rem; font-weight: 700; color: var(--white);
-  letter-spacing: 2px;
-}
+.nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.nav-logo { font-size: 1.25rem; font-weight: 700; color: var(--white); letter-spacing: 2px; }
 .nav-logo span { color: var(--gold); }
-
 .nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a {
-  color: var(--gray-400); text-decoration: none;
-  font-size: 0.9rem; font-weight: 500;
-  transition: color 0.2s; position: relative;
-}
+.nav-links a { color: var(--gray-400); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; position: relative; }
 .nav-links a:hover, .nav-links a.active { color: var(--white); }
-.nav-links a::after {
-  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-  height: 2px; background: var(--gold);
-  transform: scaleX(0); transition: transform 0.3s;
-}
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; }
 .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
-
 .nav-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
-
-/* ===== Hero ===== */
 .hero {
   min-height: 100vh; display: flex; align-items: center;
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, #1a365d 100%);
-  position: relative; overflow: hidden;
-  padding: 6rem 2rem 4rem;
+  position: relative; overflow: hidden; padding: 6rem 2rem 4rem;
 }
-
 .hero::before {
   content: ''; position: absolute; inset: 0;
   background: radial-gradient(ellipse at 70% 30%, rgb(37 99 235 / 0.15) 0%, transparent 60%),
               radial-gradient(ellipse at 30% 70%, rgb(212 168 83 / 0.08) 0%, transparent 60%);
 }
-
-.hero-grid {
-  position: relative; z-index: 1;
-  max-width: 1200px; margin: 0 auto; width: 100%;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 3rem; align-items: center;
-}
-
-.hero-badge {
-  display: inline-block; padding: 0.35rem 1rem;
-  background: rgb(37 99 235 / 0.2);
-  border: 1px solid rgb(37 99 235 / 0.3);
-  color: var(--blue-light); border-radius: 100px;
-  font-size: 0.85rem; font-weight: 500;
-  margin-bottom: 1.5rem;
-  animation: fadeInUp 0.6s ease-out;
-}
-
-.hero h1 {
-  font-size: 3.5rem; font-weight: 800; color: var(--white);
-  line-height: 1.2; margin-bottom: 0.5rem;
-  animation: fadeInUp 0.6s ease-out 0.1s both;
-}
+.hero-grid { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.hero-badge { display: inline-block; padding: 0.35rem 1rem; background: rgb(37 99 235 / 0.2); border: 1px solid rgb(37 99 235 / 0.3); color: var(--blue-light); border-radius: 100px; font-size: 0.85rem; font-weight: 500; margin-bottom: 1.5rem; animation: fadeInUp 0.6s ease-out; }
+.hero h1 { font-size: 3.5rem; font-weight: 800; color: var(--white); line-height: 1.2; margin-bottom: 0.5rem; animation: fadeInUp 0.6s ease-out 0.1s both; }
 .hero h1 .highlight { color: var(--gold); }
-
-.hero h2 {
-  font-size: 1.35rem; color: var(--gray-300); font-weight: 400;
-  margin-bottom: 1.5rem;
-  animation: fadeInUp 0.6s ease-out 0.2s both;
-}
-
-.hero-stats {
-  display: flex; gap: 2rem; margin-bottom: 2rem;
-  animation: fadeInUp 0.6s ease-out 0.3s both;
-}
+.hero h2 { font-size: 1.35rem; color: var(--gray-300); font-weight: 400; margin-bottom: 1.5rem; animation: fadeInUp 0.6s ease-out 0.2s both; }
+.hero-stats { display: flex; gap: 2rem; margin-bottom: 2rem; animation: fadeInUp 0.6s ease-out 0.3s both; }
 .hero-stat { text-align: center; }
 .hero-stat-num { font-size: 2rem; font-weight: 800; color: var(--gold); line-height: 1; }
 .hero-stat-label { font-size: 0.8rem; color: var(--gray-400); margin-top: 0.25rem; }
-
-.hero-cta {
-  display: flex; gap: 1rem; flex-wrap: wrap;
-  animation: fadeInUp 0.6s ease-out 0.4s both;
-}
-
-.btn {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 0.75rem 1.75rem; border-radius: 100px;
-  font-size: 0.95rem; font-weight: 600; text-decoration: none;
-  cursor: pointer; border: none;
-  transition: all 0.3s;
-}
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeInUp 0.6s ease-out 0.4s both; }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.75rem; border-radius: 100px; font-size: 0.95rem; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: all 0.3s; }
 .btn-primary { background: var(--blue); color: var(--white); box-shadow: 0 4px 14px rgb(37 99 235 / 0.4); }
 .btn-primary:hover { background: var(--blue-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgb(37 99 235 / 0.5); }
 .btn-outline { background: transparent; color: var(--white); border: 2px solid rgb(255 255 255 / 0.3); }
 .btn-outline:hover { border-color: var(--white); transform: translateY(-2px); }
-
-.hero-visual {
-  display: flex; justify-content: center; align-items: center;
-  animation: fadeInUp 0.8s ease-out 0.3s both;
-}
-
-.hero-card {
-  background: rgb(255 255 255 / 0.05); border: 1px solid rgb(255 255 255 / 0.1);
-  border-radius: var(--radius); padding: 2rem;
-  backdrop-filter: blur(10px);
-  width: 100%; max-width: 420px;
-}
-
+.hero-visual { display: flex; justify-content: center; align-items: center; animation: fadeInUp 0.8s ease-out 0.3s both; }
+.hero-card { background: rgb(255 255 255 / 0.05); border: 1px solid rgb(255 255 255 / 0.1); border-radius: var(--radius); padding: 2rem; backdrop-filter: blur(10px); width: 100%; max-width: 420px; }
 .hero-card h3 { color: var(--gold); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
 .hero-card-item { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; color: var(--gray-200); font-size: 0.9rem; }
 .hero-card-item .icon { color: var(--blue-light); font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
-
-/* ===== Section Common ===== */
 .section { padding: 5rem 2rem; }
 .section-alt { background: var(--white); }
-
 .section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
 .section-tag { display: inline-block; color: var(--blue); font-size: 0.85rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; }
 .section-title { font-size: 2.25rem; font-weight: 800; color: var(--gray-800); margin-bottom: 1rem; }
 .section-subtitle { color: var(--text-light); font-size: 1.05rem; }
-
 .container { max-width: 1100px; margin: 0 auto; }
-
-/* ===== About ===== */
-.about-grid {
-  display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem;
-  align-items: start;
-}
-
-.about-image {
-  position: relative;
-  border-radius: var(--radius); overflow: hidden;
-  aspect-ratio: 4/5;
-  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
-  display: flex; align-items: center; justify-content: center;
-}
-
-.about-image-inner {
-  text-align: center; padding: 2rem;
-}
-.about-avatar {
-  width: 120px; height: 120px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--navy), var(--navy-light));
-  color: var(--white); display: flex; align-items: center; justify-content: center;
-  font-size: 2.5rem; font-weight: 700; margin: 0 auto 1rem;
-  box-shadow: var(--shadow-lg);
-}
-
+.about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: start; }
+.about-image { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/5; background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%); display: flex; align-items: center; justify-content: center; }
+.about-image-inner { text-align: center; padding: 2rem; }
+.about-avatar { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, var(--navy), var(--navy-light)); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: 700; margin: 0 auto 1rem; box-shadow: var(--shadow-lg); }
 .about-info .section-title { text-align: left; font-size: 1.75rem; margin-bottom: 0.25rem; }
 .about-info .role-tag { color: var(--blue); font-weight: 600; margin-bottom: 1.25rem; }
-
 .about-info p { color: var(--text-light); margin-bottom: 1.5rem; font-size: 0.95rem; }
-
 .about-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-.about-highlight {
-  display: flex; align-items: center; gap: 0.5rem;
-  padding: 0.65rem 0.9rem; background: var(--gray-100);
-  border-radius: 8px; font-size: 0.875rem; font-weight: 500;
-}
+.about-highlight { display: flex; align-items: center; gap: 0.5rem; padding: 0.65rem 0.9rem; background: var(--gray-100); border-radius: 8px; font-size: 0.875rem; font-weight: 500; }
 .about-highlight .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
-
-/* ===== Experience ===== */
 .exp-timeline { position: relative; }
-.exp-timeline::before {
-  content: ''; position: absolute; left: 20px; top: 0; bottom: 0;
-  width: 2px; background: var(--gray-200);
-}
-
-.exp-item {
-  position: relative; padding-left: 56px; margin-bottom: 3rem;
-}
+.exp-timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: var(--gray-200); }
+.exp-item { position: relative; padding-left: 56px; margin-bottom: 3rem; }
 .exp-item:last-child { margin-bottom: 0; }
-
-.exp-dot {
-  position: absolute; left: 13px; top: 4px;
-  width: 16px; height: 16px; border-radius: 50%;
-  background: var(--blue); border: 3px solid var(--white);
-  box-shadow: 0 0 0 3px var(--blue);
-}
-
+.exp-dot { position: absolute; left: 13px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--blue); border: 3px solid var(--white); box-shadow: 0 0 0 3px var(--blue); }
 .exp-header { margin-bottom: 0.75rem; }
 .exp-company { font-size: 1.2rem; font-weight: 700; color: var(--gray-800); }
 .exp-role { display: inline-block; margin-left: 0.75rem; color: var(--blue); font-weight: 600; font-size: 0.9rem; }
 .exp-meta { color: var(--text-light); font-size: 0.85rem; margin-top: 0.25rem; }
-
 .exp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
-.exp-tag {
-  padding: 0.2rem 0.65rem; background: #eff6ff;
-  color: var(--blue); font-size: 0.78rem; border-radius: 100px; font-weight: 500;
-}
-
+.exp-tag { padding: 0.2rem 0.65rem; background: #eff6ff; color: var(--blue); font-size: 0.78rem; border-radius: 100px; font-weight: 500; }
 .exp-achievements { margin-bottom: 1rem; }
 .exp-achievements h4 { font-size: 0.85rem; color: var(--gold); font-weight: 700; letter-spacing: 1px; margin-bottom: 0.5rem; }
 .exp-achievements ul { list-style: none; }
-.exp-achievements li {
-  position: relative; padding-left: 1.25rem; margin-bottom: 0.35rem;
-  font-size: 0.9rem; color: var(--gray-600);
-}
-.exp-achievements li::before {
-  content: ''; position: absolute; left: 0; top: 0.55em;
-  width: 8px; height: 8px; border-radius: 2px;
-  background: var(--blue-light); opacity: 0.5;
-}
-
+.exp-achievements li { position: relative; padding-left: 1.25rem; margin-bottom: 0.35rem; font-size: 0.9rem; color: var(--gray-600); }
+.exp-achievements li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 8px; height: 8px; border-radius: 2px; background: var(--blue-light); opacity: 0.5; }
 .exp-detail h4 { font-size: 0.85rem; color: var(--gray-500); font-weight: 600; letter-spacing: 1px; margin-bottom: 0.5rem; }
 .exp-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-.exp-detail-item {
-  font-size: 0.85rem; color: var(--gray-600); padding: 0.5rem 0.75rem;
-  background: var(--gray-100); border-radius: 6px;
-}
+.exp-detail-item { font-size: 0.85rem; color: var(--gray-600); padding: 0.5rem 0.75rem; background: var(--gray-100); border-radius: 6px; }
 .exp-detail-item strong { color: var(--gray-700); }
-
-/* ===== Projects ===== */
 .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-.project-card {
-  background: var(--white); border-radius: var(--radius);
-  padding: 1.75rem; box-shadow: var(--shadow);
-  border: 1px solid var(--gray-200);
-  transition: all 0.3s;
-}
+.project-card { background: var(--white); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow); border: 1px solid var(--gray-200); transition: all 0.3s; }
 .project-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-
 .project-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
 .project-title { font-size: 1.1rem; font-weight: 700; color: var(--gray-800); }
-.project-role {
-  font-size: 0.75rem; padding: 0.15rem 0.6rem; border-radius: 100px;
-  background: #fef3c7; color: #92400e; font-weight: 600; white-space: nowrap;
-}
+.project-role { font-size: 0.75rem; padding: 0.15rem 0.6rem; border-radius: 100px; background: #fef3c7; color: #92400e; font-weight: 600; white-space: nowrap; }
 .project-role.lead { background: #dbeafe; color: #1e40af; }
-
 .project-meta { color: var(--text-light); font-size: 0.8rem; margin-bottom: 0.75rem; }
-
 .project-achievement { margin-bottom: 0.75rem; }
 .project-achievement span { font-size: 0.8rem; font-weight: 600; color: var(--gold); }
 .project-achievement p { font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem; }
-
 .project-desc { font-size: 0.85rem; color: var(--gray-600); line-height: 1.6; }
-
-/* ===== Skills & Certs ===== */
 .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-
 .skills-block { margin-bottom: 2rem; }
-.skills-block h3 {
-  font-size: 1rem; font-weight: 700; color: var(--gray-800);
-  margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;
-}
+.skills-block h3 { font-size: 1rem; font-weight: 700; color: var(--gray-800); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
 .skills-block h3 .emoji { font-size: 1.2rem; }
-
 .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.skill-tag {
-  padding: 0.4rem 0.9rem; background: var(--white);
-  border: 1px solid var(--gray-200); border-radius: 100px;
-  font-size: 0.85rem; color: var(--gray-700); font-weight: 500;
-  transition: all 0.2s;
-}
+.skill-tag { padding: 0.4rem 0.9rem; background: var(--white); border: 1px solid var(--gray-200); border-radius: 100px; font-size: 0.85rem; color: var(--gray-700); font-weight: 500; transition: all 0.2s; }
 .skill-tag:hover { border-color: var(--blue); color: var(--blue); }
-
-.cert-card {
-  background: var(--white); border-radius: var(--radius);
-  padding: 1.25rem; box-shadow: var(--shadow);
-  border: 1px solid var(--gray-200);
-  display: flex; align-items: flex-start; gap: 0.75rem;
-  margin-bottom: 0.75rem;
-  transition: all 0.2s;
-}
+.cert-card { background: var(--white); border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow); border: 1px solid var(--gray-200); display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; transition: all 0.2s; }
 .cert-card:hover { border-color: var(--gold); }
 .cert-card .cert-icon { font-size: 1.5rem; flex-shrink: 0; }
 .cert-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--gray-800); }
 .cert-card p { font-size: 0.8rem; color: var(--text-light); margin-top: 0.15rem; }
 .cert-card.in-progress { border-color: var(--blue-light); background: #fafcff; }
-
 .strengths-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
-.strength-item {
-  padding: 0.5rem 1rem; background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
-  border-radius: 8px; font-size: 0.85rem; color: var(--gray-700); font-weight: 500;
-  display: flex; align-items: center; gap: 0.4rem;
-}
-
-/* ===== Education ===== */
-.edu-card {
-  background: var(--white); border-radius: var(--radius);
-  padding: 1.5rem; box-shadow: var(--shadow);
-  border: 1px solid var(--gray-200); margin-bottom: 1rem;
-  display: flex; gap: 1.25rem; align-items: flex-start;
-}
-.edu-icon {
-  width: 48px; height: 48px; border-radius: 12px;
-  background: var(--navy); color: var(--gold);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.25rem; flex-shrink: 0;
-}
+.strength-item { padding: 0.5rem 1rem; background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%); border-radius: 8px; font-size: 0.85rem; color: var(--gray-700); font-weight: 500; display: flex; align-items: center; gap: 0.4rem; }
+.edu-card { background: var(--white); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); border: 1px solid var(--gray-200); margin-bottom: 1rem; display: flex; gap: 1.25rem; align-items: flex-start; }
+.edu-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--navy); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
 .edu-info h4 { font-size: 1rem; font-weight: 700; color: var(--gray-800); }
 .edu-info .edu-school { color: var(--blue); font-weight: 600; font-size: 0.9rem; }
 .edu-info .edu-meta { font-size: 0.8rem; color: var(--text-light); margin-top: 0.15rem; }
-.edu-tag {
-  display: inline-block; padding: 0.15rem 0.5rem;
-  background: #fef3c7; color: #92400e; font-size: 0.7rem;
-  border-radius: 4px; font-weight: 600; margin-top: 0.4rem;
-}
-
-/* ===== Contact ===== */
+.edu-tag { display: inline-block; padding: 0.15rem 0.5rem; background: #fef3c7; color: #92400e; font-size: 0.7rem; border-radius: 4px; font-weight: 600; margin-top: 0.4rem; }
 .contact { background: var(--navy); color: var(--white); }
-
-.contact-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 3rem; align-items: start;
-}
-
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
 .contact .section-tag { color: var(--gold-light); }
 .contact .section-title { color: var(--white); }
 .contact .section-subtitle { color: var(--gray-400); }
 .contact .section-header { text-align: left; margin: 0 0 2rem; }
-
 .contact-items { display: flex; flex-direction: column; gap: 1rem; }
-.contact-item {
-  display: flex; align-items: center; gap: 0.75rem;
-  padding: 0.75rem 1rem; background: rgb(255 255 255 / 0.05);
-  border-radius: 8px; border: 1px solid rgb(255 255 255 / 0.08);
-  font-size: 0.9rem; transition: all 0.2s;
-}
+.contact-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: rgb(255 255 255 / 0.05); border-radius: 8px; border: 1px solid rgb(255 255 255 / 0.08); font-size: 0.9rem; transition: all 0.2s; }
 .contact-item:hover { background: rgb(255 255 255 / 0.1); }
-.contact-icon {
-  width: 40px; height: 40px; border-radius: 10px;
-  background: rgb(255 255 255 / 0.1);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; flex-shrink: 0;
-}
-
-.contact-cta {
-  background: rgb(255 255 255 / 0.05); border: 1px solid rgb(255 255 255 / 0.1);
-  border-radius: var(--radius); padding: 2rem;
-  backdrop-filter: blur(10px);
-}
+.contact-icon { width: 40px; height: 40px; border-radius: 10px; background: rgb(255 255 255 / 0.1); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.contact-cta { background: rgb(255 255 255 / 0.05); border: 1px solid rgb(255 255 255 / 0.1); border-radius: var(--radius); padding: 2rem; backdrop-filter: blur(10px); }
 .contact-cta h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
 .contact-cta p { color: var(--gray-400); margin-bottom: 1.5rem; font-size: 0.9rem; }
 .contact-cta .btn-primary { width: 100%; justify-content: center; }
-
-/* ===== Footer ===== */
-.footer {
-  background: #060e1a; color: var(--gray-500);
-  text-align: center; padding: 2rem;
-  font-size: 0.85rem;
-}
-
-/* ===== Animations ===== */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+.footer { background: #060e1a; color: var(--gray-500); text-align: center; padding: 2rem; font-size: 0.85rem; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-/* ===== Responsive ===== */
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; text-align: center; }
   .hero-stats { justify-content: center; }
@@ -413,26 +160,16 @@ body {
   .hero h1 { font-size: 2.5rem; }
   .hero-visual { order: -1; }
   .hero-card { max-width: 100%; }
-
   .about-grid { grid-template-columns: 1fr; }
   .about-image { max-width: 300px; margin: 0 auto; }
-
   .projects-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
-
   .exp-detail-grid { grid-template-columns: 1fr; }
-
   .nav-links { display: none; }
-  .nav-links.open {
-    display: flex; flex-direction: column;
-    position: absolute; top: 64px; left: 0; right: 0;
-    background: var(--navy); padding: 1.5rem 2rem; gap: 1rem;
-    border-bottom: 1px solid rgb(255 255 255 / 0.1);
-  }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--navy); padding: 1.5rem 2rem; gap: 1rem; border-bottom: 1px solid rgb(255 255 255 / 0.1); }
   .nav-toggle { display: block; }
 }
-
 @media (max-width: 480px) {
   .hero h1 { font-size: 2rem; }
   .hero-stats { gap: 1rem; }
@@ -442,8 +179,6 @@ body {
 </style>
 </head>
 <body>
-
-<!-- Navigation -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="#home" class="nav-logo">ZHU<span>PENG</span></a>
@@ -458,8 +193,6 @@ body {
     </ul>
   </div>
 </nav>
-
-<!-- Hero -->
 <section class="hero" id="home">
   <div class="hero-grid">
     <div class="hero-text">
@@ -489,8 +222,6 @@ body {
     </div>
   </div>
 </section>
-
-<!-- About -->
 <section class="section section-alt" id="about">
   <div class="container">
     <div class="section-header">
@@ -509,12 +240,8 @@ body {
       <div class="about-info">
         <div class="section-title">朱鹏</div>
         <div class="role-tag">🎯 期望职位：生产总监 | 行业：电子/硬件开发、半导体/芯片、医疗器械 | 薪资：20-25K</div>
-        <p>
-          15年制造业供应链与运营管理经验，其中9年采购与供应链全盘管理经验，多部门管理经验。从基层成长为部门经理，主导过采购体系搭建、供应商开发与考核、ERP系统推行、生产计件式考核落地执行。
-        </p>
-        <p>
-          具备从0到1建设新工厂/新项目的全流程项目管理能力，环安部门搭建与管理。持有安全生产管理人、职业卫生管理人、消防管理人等资格证书，注册安全工程师在考。
-        </p>
+        <p>15年制造业供应链与运营管理经验，其中9年采购与供应链全盘管理经验，多部门管理经验。从基层成长为部门经理，主导过采购体系搭建、供应商开发与考核、ERP系统推行、生产计件式考核落地执行。</p>
+        <p>具备从0到1建设新工厂/新项目的全流程项目管理能力，环安部门搭建与管理。持有安全生产管理人、职业卫生管理人、消防管理人等资格证书，注册安全工程师在考。</p>
         <div class="about-highlights">
           <div class="about-highlight"><span class="dot"></span> 细致严谨</div>
           <div class="about-highlight"><span class="dot"></span> 成熟稳重</div>
@@ -529,8 +256,6 @@ body {
     </div>
   </div>
 </section>
-
-<!-- Experience -->
 <section class="section" id="experience">
   <div class="container">
     <div class="section-header">
@@ -539,7 +264,6 @@ body {
       <p class="section-subtitle">10年以上制造业管理经验，涵盖采购、供应链、PMC、EHS等多个领域</p>
     </div>
     <div class="exp-timeline">
-      <!-- Job 1: Procurement Manager -->
       <div class="exp-item">
         <div class="exp-dot"></div>
         <div class="exp-header">
@@ -548,12 +272,7 @@ body {
           <div class="exp-meta">2017.01 - 至今 (8年+) | 采购部 / 管理部</div>
         </div>
         <div class="exp-tags">
-          <span class="exp-tag">供应商管理</span>
-          <span class="exp-tag">采购管理</span>
-          <span class="exp-tag">成本控制</span>
-          <span class="exp-tag">环境与安全行政管理</span>
-          <span class="exp-tag">ERP系统</span>
-          <span class="exp-tag">EHS管理</span>
+          <span class="exp-tag">供应商管理</span><span class="exp-tag">采购管理</span><span class="exp-tag">成本控制</span><span class="exp-tag">环境与安全行政管理</span><span class="exp-tag">ERP系统</span><span class="exp-tag">EHS管理</span>
         </div>
         <div class="exp-achievements">
           <h4>✦ 主要业绩</h4>
@@ -577,8 +296,6 @@ body {
           </div>
         </div>
       </div>
-
-      <!-- Job 2: PMC Manager -->
       <div class="exp-item">
         <div class="exp-dot"></div>
         <div class="exp-header">
@@ -609,8 +326,6 @@ body {
     </div>
   </div>
 </section>
-
-<!-- Projects -->
 <section class="section section-alt" id="projects">
   <div class="container">
     <div class="section-header">
@@ -619,106 +334,45 @@ body {
       <p class="section-subtitle">主导多个从0到1的重大项目，涵盖新工厂建设、数字化改革、流程优化</p>
     </div>
     <div class="projects-grid">
-      <!-- Project 1 -->
       <div class="project-card fade-in">
-        <div class="project-header">
-          <div class="project-title">数据化改革</div>
-          <div class="project-role lead">项目组长</div>
-        </div>
+        <div class="project-header"><div class="project-title">数据化改革</div><div class="project-role lead">项目组长</div></div>
         <div class="project-meta">2025.04 - 至今</div>
-        <div class="project-achievement">
-          <span>✦ 核心成果</span>
-          <p>云存储管理工程文档、开发企业微信小程序（设备点检、安保巡检等）、自研多款可安装手机APP并迭代数个版本，小成本实现流程自动化与管理精细化</p>
-        </div>
-        <div class="project-desc">
-          主导公司内部工作流程优化，结合AI编程技术开发定制化APP与小程序（设备点检维护、安保巡检、水电台账、提案改善、领料发料、品质巡检、样品开发），数据保留在厂内服务器中安全可靠，打破空间限制，显著提升团队协作效率与数据管理能力。
-        </div>
+        <div class="project-achievement"><span>✦ 核心成果</span><p>云存储管理工程文档、开发企业微信小程序（设备点检、安保巡检等）、自研多款可安装手机APP并迭代数个版本，小成本实现流程自动化与管理精细化</p></div>
+        <div class="project-desc">主导公司内部工作流程优化，结合AI编程技术开发定制化APP与小程序（设备点检维护、安保巡检、水电台账、提案改善、领料发料、品质巡检、样品开发），数据保留在厂内服务器中安全可靠，打破空间限制，显著提升团队协作效率与数据管理能力。</div>
       </div>
-
-      <!-- Project 2 -->
       <div class="project-card fade-in">
-        <div class="project-header">
-          <div class="project-title">肇庆黑冠新公司项目建设</div>
-          <div class="project-role lead">项目负责人</div>
-        </div>
+        <div class="project-header"><div class="project-title">肇庆黑冠新公司项目建设</div><div class="project-role lead">项目负责人</div></div>
         <div class="project-meta">2021.05 - 2021.10</div>
-        <div class="project-achievement">
-          <span>✦ 核心成果</span>
-          <p>如期完成新工厂投产，2022年4月完成"三同时"建设并顺利投产；节约环保设备单项成本80余万元，节约整个项目预算近150万元</p>
-        </div>
-        <div class="project-desc">
-          为满足业务扩展需要，主导肇庆新公司全流程建设：车间布局及工序规划、生产设备规划采购、环评/安评/环保设备规划建设、排污许可证申报、工厂装修推进、新工厂多部门人员培训（同步珠海厂管理制度及理念）。
-        </div>
+        <div class="project-achievement"><span>✦ 核心成果</span><p>如期完成新工厂投产，2022年4月完成"三同时"建设并顺利投产；节约环保设备单项成本80余万元，节约整个项目预算近150万元</p></div>
+        <div class="project-desc">为满足业务扩展需要，主导肇庆新公司全流程建设：车间布局及工序规划、生产设备规划采购、环评/安评/环保设备规划建设、排污许可证申报、工厂装修推进、新工厂多部门人员培训（同步珠海厂管理制度及理念）。</div>
       </div>
-
-      <!-- Project 3 -->
       <div class="project-card fade-in">
-        <div class="project-header">
-          <div class="project-title">珠海黑冠第三期生产项目</div>
-          <div class="project-role lead">项目经理</div>
-        </div>
+        <div class="project-header"><div class="project-title">珠海黑冠第三期生产项目</div><div class="project-role lead">项目经理</div></div>
         <div class="project-meta">2019.09 - 2020.02</div>
-        <div class="project-achievement">
-          <span>✦ 核心成果</span>
-          <p>如期完成生产项目的申报及验收，实现产能扩张目标</p>
-        </div>
-        <div class="project-desc">
-          规划产线工序布局及人员计划，推进新建项目"三同时"工作，落实环评及环保治理设施的设计与建设，验收环境治理设施，确保达到预期效果，组织制定并实施环保设施日常使用点检维护制度，申报排污许可证及后期管理。
-        </div>
+        <div class="project-achievement"><span>✦ 核心成果</span><p>如期完成生产项目的申报及验收，实现产能扩张目标</p></div>
+        <div class="project-desc">规划产线工序布局及人员计划，推进新建项目"三同时"工作，落实环评及环保治理设施的设计与建设，验收环境治理设施，确保达到预期效果，组织制定并实施环保设施日常使用点检维护制度，申报排污许可证及后期管理。</div>
       </div>
-
-      <!-- Project 4 -->
       <div class="project-card fade-in">
-        <div class="project-header">
-          <div class="project-title">推行计件制生产改革</div>
-          <div class="project-role">PMC经理</div>
-        </div>
+        <div class="project-header"><div class="project-title">推行计件制生产改革</div><div class="project-role">PMC经理</div></div>
         <div class="project-meta">2013.09 - 2014.12</div>
-        <div class="project-achievement">
-          <span>✦ 核心成果</span>
-          <p>单位工时产出提升近150%，年产量提升近100%，员工积极性与收入水平显著提升</p>
-        </div>
-        <div class="project-desc">
-          主导生产管理与激励模式优化，设计绩效导向的激励方案，完善质量管控流程，试点推行并分阶段完成全部门推广，完善薪酬核算流程，确保方案合规落地，支撑公司人才吸引与业务扩张。
-        </div>
+        <div class="project-achievement"><span>✦ 核心成果</span><p>单位工时产出提升近150%，年产量提升近100%，员工积极性与收入水平显著提升</p></div>
+        <div class="project-desc">主导生产管理与激励模式优化，设计绩效导向的激励方案，完善质量管控流程，试点推行并分阶段完成全部门推广，完善薪酬核算流程，确保方案合规落地，支撑公司人才吸引与业务扩张。</div>
       </div>
-
-      <!-- Project 5 -->
       <div class="project-card fade-in">
-        <div class="project-header">
-          <div class="project-title">薪资核算系统定制开发</div>
-          <div class="project-role">厂务部经理</div>
-        </div>
+        <div class="project-header"><div class="project-title">薪资核算系统定制开发</div><div class="project-role">厂务部经理</div></div>
         <div class="project-meta">2014.03 - 2014.06</div>
-        <div class="project-achievement">
-          <span>✦ 核心成果</span>
-          <p>计件工资核算工作从原本20天以上缩短到3天内，效率提升显著</p>
-        </div>
-        <div class="project-desc">
-          同第三方协同配合近两个月，完成完全定制化的计件薪资核算系统开发。市面上常规软件无法满足需求，定制系统实现了精准高效的薪资核算，大幅降低人工统计工作量。
-        </div>
+        <div class="project-achievement"><span>✦ 核心成果</span><p>计件工资核算工作从原本20天以上缩短到3天内，效率提升显著</p></div>
+        <div class="project-desc">同第三方协同配合近两个月，完成完全定制化的计件薪资核算系统开发。市面上常规软件无法满足需求，定制系统实现了精准高效的薪资核算，大幅降低人工统计工作量。</div>
       </div>
-
-      <!-- Project 6 -->
       <div class="project-card fade-in">
-        <div class="project-header">
-          <div class="project-title">CNC三轴加工中心SOP编制</div>
-          <div class="project-role">项目组成员</div>
-        </div>
+        <div class="project-header"><div class="project-title">CNC三轴加工中心SOP编制</div><div class="project-role">项目组成员</div></div>
         <div class="project-meta">2012.07 - 2013.07</div>
-        <div class="project-achievement">
-          <span>✦ 核心成果</span>
-          <p>得到总经理表彰，提拔为厂长特别助理；SOP被列入公司ISO管控文件</p>
-        </div>
-        <div class="project-desc">
-          拍摄素材编写作业标准书，历经粗装、精装、钣金、调试几道工序，前后近6个月完成E650加工中心组装作业标书。完成SOP被作为后续公司教导新员工的学习资料，并参与新员工技术培训。
-        </div>
+        <div class="project-achievement"><span>✦ 核心成果</span><p>得到总经理表彰，提拔为厂长特别助理；SOP被列入公司ISO管控文件</p></div>
+        <div class="project-desc">拍摄素材编写作业标准书，历经粗装、精装、钣金、调试几道工序，前后近6个月完成E650加工中心组装作业标书。完成SOP被作为后续公司教导新员工的学习资料，并参与新员工技术培训。</div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- Skills & Certifications -->
 <section class="section" id="skills">
   <div class="container">
     <div class="section-header">
@@ -731,195 +385,74 @@ body {
         <div class="skills-block">
           <h3><span class="emoji">🏭</span> 运营管理</h3>
           <div class="skill-tags">
-            <span class="skill-tag">采购与供应链管理</span>
-            <span class="skill-tag">生产计划与物料控制</span>
-            <span class="skill-tag">PMC管理</span>
-            <span class="skill-tag">仓储与库存管理</span>
-            <span class="skill-tag">供应商开发与考核</span>
-            <span class="skill-tag">成本控制与降本</span>
-            <span class="skill-tag">生产计件制改革</span>
-            <span class="skill-tag">产线布局优化</span>
+            <span class="skill-tag">采购与供应链管理</span><span class="skill-tag">生产计划与物料控制</span><span class="skill-tag">PMC管理</span><span class="skill-tag">仓储与库存管理</span><span class="skill-tag">供应商开发与考核</span><span class="skill-tag">成本控制与降本</span><span class="skill-tag">生产计件制改革</span><span class="skill-tag">产线布局优化</span>
           </div>
         </div>
         <div class="skills-block">
           <h3><span class="emoji">📊</span> 数字工具</h3>
           <div class="skill-tags">
-            <span class="skill-tag">ERP系统推行</span>
-            <span class="skill-tag">金蝶K3</span>
-            <span class="skill-tag">企业微信小程序开发</span>
-            <span class="skill-tag">APP开发（AI编程）</span>
-            <span class="skill-tag">数据分析</span>
-            <span class="skill-tag">薪资核算系统</span>
-            <span class="skill-tag">云存储管理</span>
-            <span class="skill-tag">流程数字化</span>
+            <span class="skill-tag">ERP系统推行</span><span class="skill-tag">金蝶K3</span><span class="skill-tag">企业微信小程序开发</span><span class="skill-tag">APP开发（AI编程）</span><span class="skill-tag">数据分析</span><span class="skill-tag">薪资核算系统</span><span class="skill-tag">云存储管理</span><span class="skill-tag">流程数字化</span>
           </div>
         </div>
         <div class="skills-block">
           <h3><span class="emoji">👥</span> 综合管理</h3>
           <div class="skill-tags">
-            <span class="skill-tag">多部门统筹管理</span>
-            <span class="skill-tag">项目管理（从0到1）</span>
-            <span class="skill-tag">行政人事管理</span>
-            <span class="skill-tag">绩效考核体系搭建</span>
-            <span class="skill-tag">团队建设与培训</span>
-            <span class="skill-tag">跨部门协调</span>
-            <span class="skill-tag">ISO管控文件</span>
+            <span class="skill-tag">多部门统筹管理</span><span class="skill-tag">项目管理（从0到1）</span><span class="skill-tag">行政人事管理</span><span class="skill-tag">绩效考核体系搭建</span><span class="skill-tag">团队建设与培训</span><span class="skill-tag">跨部门协调</span><span class="skill-tag">ISO管控文件</span>
           </div>
         </div>
       </div>
       <div>
-        <div class="skills-block">
-          <h3><span class="emoji">📜</span> 资质证书</h3>
-        </div>
-        <div class="cert-card">
-          <span class="cert-icon">🛡️</span>
-          <div>
-            <h4>安全生产管理人</h4>
-            <p>全面负责企业安全生产管理体系建设</p>
-          </div>
-        </div>
-        <div class="cert-card">
-          <span class="cert-icon">🏥</span>
-          <div>
-            <h4>职业卫生管理人</h4>
-            <p>职业卫生管理体系搭建与合规运营</p>
-          </div>
-        </div>
-        <div class="cert-card">
-          <span class="cert-icon">🔥</span>
-          <div>
-            <h4>消防管理人</h4>
-            <p>消防安全管理体系建设与应急管理</p>
-          </div>
-        </div>
-        <div class="cert-card in-progress">
-          <span class="cert-icon">📚</span>
-          <div>
-            <h4>注册安全工程师 <span style="font-size:0.7rem;color:var(--blue);">（在考）</span></h4>
-            <p>国家注册安全工程师执业资格考试备考中</p>
-          </div>
-        </div>
+        <div class="skills-block"><h3><span class="emoji">📜</span> 资质证书</h3></div>
+        <div class="cert-card"><span class="cert-icon">🛡️</span><div><h4>安全生产管理人</h4><p>全面负责企业安全生产管理体系建设</p></div></div>
+        <div class="cert-card"><span class="cert-icon">🏥</span><div><h4>职业卫生管理人</h4><p>职业卫生管理体系搭建与合规运营</p></div></div>
+        <div class="cert-card"><span class="cert-icon">🔥</span><div><h4>消防管理人</h4><p>消防安全管理体系建设与应急管理</p></div></div>
+        <div class="cert-card in-progress"><span class="cert-icon">📚</span><div><h4>注册安全工程师 <span style="font-size:0.7rem;color:var(--blue);">（在考）</span></h4><p>国家注册安全工程师执业资格考试备考中</p></div></div>
         <div class="strengths-list">
-          <div class="strength-item">🎯 细致严谨</div>
-          <div class="strength-item">🤝 成熟稳重</div>
-          <div class="strength-item">💪 诚恳踏实</div>
-          <div class="strength-item">🏋️ 吃苦耐劳</div>
-          <div class="strength-item">📈 数据分析能力强</div>
-          <div class="strength-item">📊 擅长生产进度管控</div>
-          <div class="strength-item">📦 擅长控制物料库存</div>
+          <div class="strength-item">🎯 细致严谨</div><div class="strength-item">🤝 成熟稳重</div><div class="strength-item">💪 诚恳踏实</div><div class="strength-item">🏋️ 吃苦耐劳</div><div class="strength-item">📈 数据分析能力强</div><div class="strength-item">📊 擅长生产进度管控</div><div class="strength-item">📦 擅长控制物料库存</div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- Education -->
 <section class="section section-alt" id="education">
   <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Education</div>
-      <h2 class="section-title">教育背景</h2>
-    </div>
+    <div class="section-header"><div class="section-tag">Education</div><h2 class="section-title">教育背景</h2></div>
     <div style="max-width: 600px; margin: 0 auto;">
-      <div class="edu-card fade-in">
-        <div class="edu-icon">🎓</div>
-        <div class="edu-info">
-          <h4>工商管理 · 本科</h4>
-          <div class="edu-school">西安电子科技大学</div>
-          <div class="edu-meta">非全日制本科</div>
-          <span class="edu-tag">211院校</span>
-        </div>
-      </div>
-      <div class="edu-card fade-in">
-        <div class="edu-icon">⚙️</div>
-        <div class="edu-info">
-          <h4>机械电子工程 · 大专</h4>
-          <div class="edu-school">珠海市技师学院</div>
-          <div class="edu-meta">2009 - 2012</div>
-        </div>
-      </div>
+      <div class="edu-card fade-in"><div class="edu-icon">🎓</div><div class="edu-info"><h4>工商管理 · 本科</h4><div class="edu-school">西安电子科技大学</div><div class="edu-meta">非全日制本科</div><span class="edu-tag">211院校</span></div></div>
+      <div class="edu-card fade-in"><div class="edu-icon">⚙️</div><div class="edu-info"><h4>机械电子工程 · 大专</h4><div class="edu-school">珠海市技师学院</div><div class="edu-meta">2009 - 2012</div></div></div>
     </div>
   </div>
 </section>
-
-<!-- Contact -->
 <section class="section contact" id="contact">
   <div class="container">
     <div class="contact-grid">
       <div>
-        <div class="section-header">
-          <div class="section-tag">Contact</div>
-          <h2 class="section-title">期待联系</h2>
-          <p class="section-subtitle">目前在职，考虑更好的发展机会。期待与优秀的电子/硬件开发、半导体/芯片、医疗器械企业合作。</p>
-        </div>
+        <div class="section-header"><div class="section-tag">Contact</div><h2 class="section-title">期待联系</h2><p class="section-subtitle">目前在职，考虑更好的发展机会。期待与优秀的电子/硬件开发、半导体/芯片、医疗器械企业合作。</p></div>
         <div class="contact-items">
-          <div class="contact-item">
-            <div class="contact-icon">📍</div>
-            <div>广东 · 珠海</div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">🎯</div>
-            <div>期望职位：生产总监</div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">💰</div>
-            <div>期望薪资：20-25K</div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">🏭</div>
-            <div>目标行业：电子/硬件开发 · 半导体/芯片 · 医疗器械</div>
-          </div>
+          <div class="contact-item"><div class="contact-icon">📍</div><div>广东 · 珠海</div></div>
+          <div class="contact-item"><div class="contact-icon">🎯</div><div>期望职位：生产总监</div></div>
+          <div class="contact-item"><div class="contact-icon">💰</div><div>期望薪资：20-25K</div></div>
+          <div class="contact-item"><div class="contact-icon">🏭</div><div>目标行业：电子/硬件开发 · 半导体/芯片 · 医疗器械</div></div>
         </div>
       </div>
       <div class="contact-cta">
         <h3>📩 投递简历或联系我</h3>
         <p>如果您有合适的职位机会，欢迎随时联系。我会在收到信息后第一时间回复。</p>
-        <a href="#" class="btn btn-primary" onclick="alert('请将您的联系方式添加到网站源代码中，或在部署时替换为真实邮箱链接。\n\n建议：将此处修改为 mailto:your-email@example.com')">✉️ 发送邮件</a>
-        <p style="font-size:0.75rem;color:var(--gray-500);margin-top:1rem;text-align:center;">
-          提示：部署前请替换为真实联系方式
-        </p>
+        <a href="mailto:your-email@example.com" class="btn btn-primary">✉️ 发送邮件</a>
+        <p style="font-size:0.75rem;color:var(--gray-500);margin-top:1rem;text-align:center;">提示：部署前请替换为真实联系方式</p>
       </div>
     </div>
   </div>
 </section>
-
-<!-- Footer -->
-<footer class="footer">
-  <p>&copy; 2025 朱鹏 · 个人主页 | 生产总监 / 供应链管理专家</p>
-</footer>
-
+<footer class="footer"><p>&copy; 2025 朱鹏 · 个人主页 | 生产总监 / 供应链管理专家</p></footer>
 <script>
-// Nav toggle for mobile
-const toggle = document.getElementById('navToggle');
-const links = document.getElementById('navLinks');
-toggle.addEventListener('click', () => links.classList.toggle('open'));
-
-// Smooth nav close on link click
-links.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => links.classList.remove('open'));
-});
-
-// Active nav section highlight
-const sections = document.querySelectorAll('section[id]');
-const navAs = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => {
-    if (scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
-  });
-  navAs.forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-  });
-});
-
-// Scroll fade-in
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('visible');
-  });
-}, { threshold: 0.15 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+const toggle=document.getElementById('navToggle'),links=document.getElementById('navLinks');
+toggle.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+const sections=document.querySelectorAll('section[id]'),navAs=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{let c='';sections.forEach(s=>{if(scrollY>=s.offsetTop-100)c=s.getAttribute('id')});navAs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c))});
+const observer=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.15});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 </script>
-
 </body>
 </html>
