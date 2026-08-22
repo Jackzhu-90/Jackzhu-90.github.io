@@ -199,6 +199,29 @@ body {
 /* ============ 页脚 ============ */
 .footer { text-align: center; padding: 30px 0; color: var(--ink-3); font-size: 13px; border-top: 1px solid var(--line); background: var(--bg); }
 
+/* ============ 价值主张 ============ */
+.about__punch {
+  margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line);
+  font-size: 14.5px; color: var(--ink); line-height: 1.75;
+}
+.about__punch strong { color: var(--gold); }
+
+/* ============ 管理幅度 ============ */
+.job__scope {
+  display: flex; flex-wrap: wrap; gap: 8px 18px;
+  background: var(--gold-soft); border: 1px solid #ecd9a8; border-radius: 10px;
+  padding: 12px 16px; margin-bottom: 14px; font-size: 13.5px; color: var(--ink-2);
+}
+.job__scope-item .lbl { color: var(--ink-3); font-size: 12px; margin-right: 2px; }
+.job__scope-item b { color: var(--gold); font-weight: 700; }
+
+/* ============ 证书在考 ============ */
+.cert--pending { opacity: .82; }
+.cert__tag {
+  margin-left: 8px; font-size: 11px; font-weight: 600; color: #fff;
+  background: var(--ink-3); border-radius: 999px; padding: 1px 9px; vertical-align: middle;
+}
+
 /* ============ 响应式 ============ */
 @media (max-width: 760px) {
   .nav__links { display: none; }
