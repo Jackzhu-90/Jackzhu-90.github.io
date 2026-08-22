@@ -3,456 +3,257 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>朱鹏 - 生产 总监 / 供应链管理专家</title>
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --navy: #0a1628; --navy-light: #132142; --blue: #2563eb; --blue-light: #3b82f6;
-  --gold: #d4a853; --gold-light: #f0d78c; --white: #ffffff;
-  --gray-100: #f1f5f9; --gray-200: #e2e8f0; --gray-300: #cbd5e1;
-  --gray-400: #94a3b8; --gray-500: #64748b; --gray-600: #475569;
-  --gray-700: #334155; --gray-800: #1e293b; --text: #1e293b;
-  --text-light: #64748b; --radius: 12px;
-  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-}
-html { scroll-behavior: smooth; font-size: 16px; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  color: var(--text); line-height: 1.7; background: var(--gray-100); overflow-x: hidden;
-}
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: rgb(10 22 40 / 0.92); backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgb(255 255 255 / 0.08); padding: 0 2rem;
-}
-.nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-.nav-logo { font-size: 1.25rem; font-weight: 700; color: var(--white); letter-spacing: 2px; }
-.nav-logo span { color: var(--gold); }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a { color: var(--gray-400); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; position: relative; }
-.nav-links a:hover, .nav-links a.active { color: var(--white); }
-.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; }
-.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
-.nav-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
-.hero {
-  min-height: 100vh; display: flex; align-items: center;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, #1a365d 100%);
-  position: relative; overflow: hidden; padding: 6rem 2rem 4rem;
-}
-.hero::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 70% 30%, rgb(37 99 235 / 0.15) 0%, transparent 60%),
-              radial-gradient(ellipse at 30% 70%, rgb(212 168 83 / 0.08) 0%, transparent 60%);
-}
-.hero-grid { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-.hero-badge { display: inline-block; padding: 0.35rem 1rem; background: rgb(37 99 235 / 0.2); border: 1px solid rgb(37 99 235 / 0.3); color: var(--blue-light); border-radius: 100px; font-size: 0.85rem; font-weight: 500; margin-bottom: 1.5rem; animation: fadeInUp 0.6s ease-out; }
-.hero h1 { font-size: 3.5rem; font-weight: 800; color: var(--white); line-height: 1.2; margin-bottom: 0.5rem; animation: fadeInUp 0.6s ease-out 0.1s both; }
-.hero h1 .highlight { color: var(--gold); }
-.hero h2 { font-size: 1.35rem; color: var(--gray-300); font-weight: 400; margin-bottom: 1.5rem; animation: fadeInUp 0.6s ease-out 0.2s both; }
-.hero-stats { display: flex; gap: 2rem; margin-bottom: 2rem; animation: fadeInUp 0.6s ease-out 0.3s both; }
-.hero-stat { text-align: center; }
-.hero-stat-num { font-size: 2rem; font-weight: 800; color: var(--gold); line-height: 1; }
-.hero-stat-label { font-size: 0.8rem; color: var(--gray-400); margin-top: 0.25rem; }
-.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeInUp 0.6s ease-out 0.4s both; }
-.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.75rem; border-radius: 100px; font-size: 0.95rem; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: all 0.3s; }
-.btn-primary { background: var(--blue); color: var(--white); box-shadow: 0 4px 14px rgb(37 99 235 / 0.4); }
-.btn-primary:hover { background: var(--blue-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgb(37 99 235 / 0.5); }
-.btn-outline { background: transparent; color: var(--white); border: 2px solid rgb(255 255 255 / 0.3); }
-.btn-outline:hover { border-color: var(--white); transform: translateY(-2px); }
-.hero-visual { display: flex; justify-content: center; align-items: center; animation: fadeInUp 0.8s ease-out 0.3s both; }
-.hero-card { background: rgb(255 255 255 / 0.05); border: 1px solid rgb(255 255 255 / 0.1); border-radius: var(--radius); padding: 2rem; backdrop-filter: blur(10px); width: 100%; max-width: 420px; }
-.hero-card h3 { color: var(--gold); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
-.hero-card-item { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; color: var(--gray-200); font-size: 0.9rem; }
-.hero-card-item .icon { color: var(--blue-light); font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
-.section { padding: 5rem 2rem; }
-.section-alt { background: var(--white); }
-.section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
-.section-tag { display: inline-block; color: var(--blue); font-size: 0.85rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; }
-.section-title { font-size: 2.25rem; font-weight: 800; color: var(--gray-800); margin-bottom: 1rem; }
-.section-subtitle { color: var(--text-light); font-size: 1.05rem; }
-.container { max-width: 1100px; margin: 0 auto; }
-.about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: start; }
-.about-image { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/5; background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%); display: flex; align-items: center; justify-content: center; }
-.about-image-inner { text-align: center; padding: 2rem; }
-.about-avatar { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, var(--navy), var(--navy-light)); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: 700; margin: 0 auto 1rem; box-shadow: var(--shadow-lg); }
-.about-info .section-title { text-align: left; font-size: 1.75rem; margin-bottom: 0.25rem; }
-.about-info .role-tag { color: var(--blue); font-weight: 600; margin-bottom: 1.25rem; }
-.about-info p { color: var(--text-light); margin-bottom: 1.5rem; font-size: 0.95rem; }
-.about-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-.about-highlight { display: flex; align-items: center; gap: 0.5rem; padding: 0.65rem 0.9rem; background: var(--gray-100); border-radius: 8px; font-size: 0.875rem; font-weight: 500; }
-.about-highlight .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
-.exp-timeline { position: relative; }
-.exp-timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: var(--gray-200); }
-.exp-item { position: relative; padding-left: 56px; margin-bottom: 3rem; }
-.exp-item:last-child { margin-bottom: 0; }
-.exp-dot { position: absolute; left: 13px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--blue); border: 3px solid var(--white); box-shadow: 0 0 0 3px var(--blue); }
-.exp-header { margin-bottom: 0.75rem; }
-.exp-company { font-size: 1.2rem; font-weight: 700; color: var(--gray-800); }
-.exp-role { display: inline-block; margin-left: 0.75rem; color: var(--blue); font-weight: 600; font-size: 0.9rem; }
-.exp-meta { color: var(--text-light); font-size: 0.85rem; margin-top: 0.25rem; }
-.exp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
-.exp-tag { padding: 0.2rem 0.65rem; background: #eff6ff; color: var(--blue); font-size: 0.78rem; border-radius: 100px; font-weight: 500; }
-.exp-achievements { margin-bottom: 1rem; }
-.exp-achievements h4 { font-size: 0.85rem; color: var(--gold); font-weight: 700; letter-spacing: 1px; margin-bottom: 0.5rem; }
-.exp-achievements ul { list-style: none; }
-.exp-achievements li { position: relative; padding-left: 1.25rem; margin-bottom: 0.35rem; font-size: 0.9rem; color: var(--gray-600); }
-.exp-achievements li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 8px; height: 8px; border-radius: 2px; background: var(--blue-light); opacity: 0.5; }
-.exp-detail h4 { font-size: 0.85rem; color: var(--gray-500); font-weight: 600; letter-spacing: 1px; margin-bottom: 0.5rem; }
-.exp-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-.exp-detail-item { font-size: 0.85rem; color: var(--gray-600); padding: 0.5rem 0.75rem; background: var(--gray-100); border-radius: 6px; }
-.exp-detail-item strong { color: var(--gray-700); }
-.projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-.project-card { background: var(--white); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow); border: 1px solid var(--gray-200); transition: all 0.3s; }
-.project-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-.project-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
-.project-title { font-size: 1.1rem; font-weight: 700; color: var(--gray-800); }
-.project-role { font-size: 0.75rem; padding: 0.15rem 0.6rem; border-radius: 100px; background: #fef3c7; color: #92400e; font-weight: 600; white-space: nowrap; }
-.project-role.lead { background: #dbeafe; color: #1e40af; }
-.project-meta { color: var(--text-light); font-size: 0.8rem; margin-bottom: 0.75rem; }
-.project-achievement { margin-bottom: 0.75rem; }
-.project-achievement span { font-size: 0.8rem; font-weight: 600; color: var(--gold); }
-.project-achievement p { font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem; }
-.project-desc { font-size: 0.85rem; color: var(--gray-600); line-height: 1.6; }
-.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-.skills-block { margin-bottom: 2rem; }
-.skills-block h3 { font-size: 1rem; font-weight: 700; color: var(--gray-800); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
-.skills-block h3 .emoji { font-size: 1.2rem; }
-.skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.skill-tag { padding: 0.4rem 0.9rem; background: var(--white); border: 1px solid var(--gray-200); border-radius: 100px; font-size: 0.85rem; color: var(--gray-700); font-weight: 500; transition: all 0.2s; }
-.skill-tag:hover { border-color: var(--blue); color: var(--blue); }
-.cert-card { background: var(--white); border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow); border: 1px solid var(--gray-200); display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; transition: all 0.2s; }
-.cert-card:hover { border-color: var(--gold); }
-.cert-card .cert-icon { font-size: 1.5rem; flex-shrink: 0; }
-.cert-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--gray-800); }
-.cert-card p { font-size: 0.8rem; color: var(--text-light); margin-top: 0.15rem; }
-.cert-card.in-progress { border-color: var(--blue-light); background: #fafcff; }
-.strengths-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
-.strength-item { padding: 0.5rem 1rem; background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%); border-radius: 8px; font-size: 0.85rem; color: var(--gray-700); font-weight: 500; display: flex; align-items: center; gap: 0.4rem; }
-.edu-card { background: var(--white); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); border: 1px solid var(--gray-200); margin-bottom: 1rem; display: flex; gap: 1.25rem; align-items: flex-start; }
-.edu-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--navy); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
-.edu-info h4 { font-size: 1rem; font-weight: 700; color: var(--gray-800); }
-.edu-info .edu-school { color: var(--blue); font-weight: 600; font-size: 0.9rem; }
-.edu-info .edu-meta { font-size: 0.8rem; color: var(--text-light); margin-top: 0.15rem; }
-.edu-tag { display: inline-block; padding: 0.15rem 0.5rem; background: #fef3c7; color: #92400e; font-size: 0.7rem; border-radius: 4px; font-weight: 600; margin-top: 0.4rem; }
-.contact { background: var(--navy); color: var(--white); }
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-.contact .section-tag { color: var(--gold-light); }
-.contact .section-title { color: var(--white); }
-.contact .section-subtitle { color: var(--gray-400); }
-.contact .section-header { text-align: left; margin: 0 0 2rem; }
-.contact-items { display: flex; flex-direction: column; gap: 1rem; }
-.contact-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: rgb(255 255 255 / 0.05); border-radius: 8px; border: 1px solid rgb(255 255 255 / 0.08); font-size: 0.9rem; transition: all 0.2s; }
-.contact-item:hover { background: rgb(255 255 255 / 0.1); }
-.contact-icon { width: 40px; height: 40px; border-radius: 10px; background: rgb(255 255 255 / 0.1); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
-.contact-cta { background: rgb(255 255 255 / 0.05); border: 1px solid rgb(255 255 255 / 0.1); border-radius: var(--radius); padding: 2rem; backdrop-filter: blur(10px); }
-.contact-cta h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
-.contact-cta p { color: var(--gray-400); margin-bottom: 1.5rem; font-size: 0.9rem; }
-.contact-cta .btn-primary { width: 100%; justify-content: center; }
-.footer { background: #060e1a; color: var(--gray-500); text-align: center; padding: 2rem; font-size: 0.85rem; }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
-@media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; text-align: center; }
-  .hero-stats { justify-content: center; }
-  .hero-cta { justify-content: center; }
-  .hero h1 { font-size: 2.5rem; }
-  .hero-visual { order: -1; }
-  .hero-card { max-width: 100%; }
-  .about-grid { grid-template-columns: 1fr; }
-  .about-image { max-width: 300px; margin: 0 auto; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .skills-grid { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .exp-detail-grid { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
-  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--navy); padding: 1.5rem 2rem; gap: 1rem; border-bottom: 1px solid rgb(255 255 255 / 0.1); }
-  .nav-toggle { display: block; }
-}
-@media (max-width: 480px) {
-  .hero h1 { font-size: 2rem; }
-  .hero-stats { gap: 1rem; }
-  .hero-stat-num { font-size: 1.5rem; }
-  .section-title { font-size: 1.75rem; }
-}
-</style>
+<title>朱鹏 | 采购/供应链 & 生产运营经理</title>
+<meta name="description" content="朱鹏 — 15年制造与供应链管理经验，专注采购/供应链管理、生产运营管理、PMC管理。求职意向珠海，期望薪资20-25K。">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#home" class="nav-logo">ZHU<span>PENG</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">关于我</a></li>
-      <li><a href="#experience">工作经历</a></li>
-      <li><a href="#projects">项目经验</a></li>
-      <li><a href="#skills">技能证书</a></li>
-      <li><a href="#education">教育背景</a></li>
-      <li><a href="#contact">联系方式</a></li>
+
+<!-- 顶部导航 -->
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="#home">朱鹏</a>
+    <nav class="nav__links">
+      <a href="#about">关于</a>
+      <a href="#experience">经历</a>
+      <a href="#projects">项目</a>
+      <a href="#skills">能力</a>
+      <a href="#certs">证书</a>
+      <a href="#job">求职</a>
+      <a href="#contact">联系</a>
+    </nav>
+    <a class="nav__cta" href="assets/resume.pdf" download>下载简历</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section id="home" class="hero">
+  <div class="hero__inner">
+    <div class="hero__avatar" aria-hidden="true">朱</div>
+    <h1 class="hero__name">朱鹏</h1>
+    <p class="hero__title">采购 / 供应链 &amp; 生产运营经理</p>
+    <p class="hero__tagline">15 年制造型企业全链路管理经验 · 新厂建设 · 降本增效 · 采购 / PMC / 环安统筹</p>
+    <div class="hero__contacts">
+      <span>📍 广东珠海</span>
+      <span>📞 13676095268</span>
+      <span>✉️ 18928072000@yeah.net</span>
+    </div>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="assets/resume.pdf" download>下载简历 PDF</a>
+      <a class="btn btn--ghost" href="#contact">联系我</a>
+    </div>
+  </div>
+</section>
+
+<!-- 关于我 -->
+<section id="about" class="section">
+  <div class="section__inner">
+    <h2 class="section__title">关于我</h2>
+    <p class="about__text">
+      15 年制造型企业全链路管理经验，深耕<strong>采购与供应链管理、生产运营（PMC）及环境安全管理</strong>。
+      擅长从 0 到 1 的新工厂规划与报建、供应商开发降本、ERP 系统推行与计件制改革，多次主导环评 / 安评 / 排污许可全流程并落地投产。
+      具备跨采购、仓库、人事行政、环安的统筹管理能力，注重降本增效与团队建设。
+    </p>
+  </div>
+</section>
+
+<!-- 工作经历 -->
+<section id="experience" class="section section--alt">
+  <div class="section__inner">
+    <h2 class="section__title">工作经历</h2>
+
+    <div class="timeline">
+      <article class="job">
+        <div class="job__head">
+          <h3 class="job__role">采购经理</h3>
+          <span class="job__company">珠海黑冠运动器材有限公司</span>
+          <span class="job__date">2017.01 - 至今</span>
+        </div>
+        <ul class="job__duties">
+          <li>制定采购计划及落实物料采购；</li>
+          <li>新供应商开发及降低采购成本；</li>
+          <li>完成采购管理和采购执行工作，包括供应商的审核、比价审核、采购订单审核、审批流程管理等；</li>
+          <li>负责供应商年度考核；</li>
+          <li>推行 ERP 系统，提高采购及仓库工作效率；</li>
+          <li>负责月度及年度仓库盘点工作，及时处理吊滞物料；</li>
+          <li>负责公司全员绩效考核制定及本部门人员考核；</li>
+          <li>管理行政、人事工作，包括考勤管理、新进及离职人员管理、年度健康体检、行政接待、人员招聘；</li>
+          <li>成立环安部门，负责安全生产、职业卫生管理；持安全生产管理人、职业卫生管理人、消防管理人证；</li>
+          <li>召开月度安全生产会议，并主导完成车间整改项目；</li>
+          <li>负责排污许可证管理及危险废物处置工作；</li>
+          <li>公司新工厂生产项目的规划设定，及环评、安评报建与审批，工厂水电装修及设备配置；</li>
+          <li>注册安全工程师在学习考试阶段。</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job__head">
+          <h3 class="job__role">PMC 经理</h3>
+          <span class="job__company">珠海黑冠运动器材有限公司</span>
+          <span class="job__date">2011.07 - 2016.12</span>
+        </div>
+        <ul class="job__duties">
+          <li>提升生产效率，将生产车间由计时生产调整为计件生产；</li>
+          <li>确定薪资核算标准及参与开发、推行定制薪资核算软件；</li>
+          <li>主导成立生管课，制定及调整生产计划，追踪交货进度；</li>
+          <li>全面推行 6S 管理，优化调整生产线布局；</li>
+          <li>优化产线制程，缩短生产周期，提高设备稼动率；</li>
+          <li>建立健全生产管理制度，提高不良品可追踪性，提高良品率；</li>
+          <li>每周同业务对接交货计划，同采购部门确认物料交货计划；</li>
+          <li>负责样品的材料及人工成本核算。</li>
+        </ul>
+      </article>
+    </div>
+    <p class="section__note">※ 如图片简历中还有更早的生产 / 车间相关岗位，请告知，我将补入时间线。</p>
+  </div>
+</section>
+
+<!-- 项目经历 -->
+<section id="projects" class="section">
+  <div class="section__inner">
+    <h2 class="section__title">项目经历</h2>
+    <div class="cards">
+
+      <article class="card">
+        <h3 class="card__title">肇庆黑冠新公司项目建设</h3>
+        <p class="card__meta">项目负责人 · 2021.05 - 2021.10</p>
+        <p class="card__desc">因产能不足、订单外溢及珠海普工招聘困难，公司决定在广东肇庆开设分公司，分摊珠海工厂潜在风险。</p>
+        <ul class="card__list">
+          <li>车间布局及工序规划、生产设备规划采购；</li>
+          <li>环评、安评及环保设备规划建设；</li>
+          <li>申报排污许可证及后期管理、工厂装修推进；</li>
+          <li>新工厂采购、仓库、行政、人事、环安部门人员培训。</li>
+        </ul>
+        <p class="card__result"><strong>业绩：</strong>如期完成新工厂布置；2021.10 取得环境评估报告表；2022.04 完成"三同时"并顺利投产；环保设备方案设计与建设招标直接节约项目费用近 80 万元。</p>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">珠海黑冠第三期生产项目建设</h3>
+        <p class="card__meta">项目经理 · 2019.09 - 2020.02</p>
+        <p class="card__desc">满足公司发展需要，新增三期生产项目。</p>
+        <ul class="card__list">
+          <li>规划产线工序布局及人员计划；</li>
+          <li>推进新建项目"三同时"工作，落实环评及环保治理设施的设计与建设；</li>
+          <li>申报并拿到排污许可证及后期管理。</li>
+        </ul>
+        <p class="card__result"><strong>业绩：</strong>如期完成新建生产项目，主导完成生产项目的申报及验收拿证，积累了从理论到实践的宝贵经验。</p>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">定制薪资核算系统</h3>
+        <p class="card__meta">厂务部经理 · 2013.03 - 2013.06</p>
+        <p class="card__desc">为更便捷快速地核算计件工资，市面常规软件无法满足需求，决定定制开发薪资核算系统。</p>
+        <p class="card__result"><strong>业绩：</strong>与第三方协作近两个月完成定制，计件薪资核算工作效率提升 3 倍。</p>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">推行计件制生产，提高生产效率</h3>
+        <p class="card__meta">PMC 主管 · 2011.09 - 2012.12</p>
+        <p class="card__desc">原计时生产方式导致员工依赖加班费、产出低，经建议讨论后转计件制。</p>
+        <ul class="card__list">
+          <li>挑选首批计件小组，讲明计件制优点与预期薪资目标；</li>
+          <li>确定质量标准，控制不良品流通与惩处方式；</li>
+          <li>试行完成后陆续推进其余部门完成计件制转变；</li>
+          <li>咨询劳动局改签员工劳动合同及薪资计算方式。</li>
+        </ul>
+        <p class="card__result"><strong>业绩：</strong>全员推行计件制后，同等上班时长下生产产出提升近 150%，生产效率提升近 150%。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 核心能力 -->
+<section id="skills" class="section section--alt">
+  <div class="section__inner">
+    <h2 class="section__title">核心能力</h2>
+    <div class="skills">
+      <div class="skills__group">
+        <h3 class="skills__cat">采购与供应链</h3>
+        <ul class="tags">
+          <li>供应商开发</li><li>比价审核</li><li>采购成本控制</li><li>ERP 推行</li><li>仓库盘点与吊滞物料处理</li>
+        </ul>
+      </div>
+      <div class="skills__group">
+        <h3 class="skills__cat">生产运营</h3>
+        <ul class="tags">
+          <li>生产计划 (PMC)</li><li>6S 管理</li><li>产线布局优化</li><li>设备稼动率提升</li><li>计件制改革</li><li>成本核算</li>
+        </ul>
+      </div>
+      <div class="skills__group">
+        <h3 class="skills__cat">环安与合规</h3>
+        <ul class="tags">
+          <li>安全生产/职业卫生/消防管理</li><li>排污许可证</li><li>环评/安评报建</li><li>危险废物处置</li><li>注册安全工程师(在考)</li>
+        </ul>
+      </div>
+      <div class="skills__group">
+        <h3 class="skills__cat">团队与管理</h3>
+        <ul class="tags">
+          <li>绩效考核</li><li>行政人事</li><li>招聘</li><li>跨部门协调</li><li>新厂规划报建</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 证书资质 -->
+<section id="certs" class="section">
+  <div class="section__inner">
+    <h2 class="section__title">证书资质</h2>
+    <ul class="certs">
+      <li>注册安全工程师（在考）</li>
+      <li>安全生产管理人</li>
+      <li>职业卫生管理人</li>
+      <li>消防管理人</li>
     </ul>
   </div>
-</nav>
-<section class="hero" id="home">
-  <div class="hero-grid">
-    <div class="hero-text">
-      <div class="hero-badge">📍 广东 · 珠海 | 在职-考虑机会</div>
-      <h1>朱<span class="highlight">鹏</span></h1>
-      <h2>15年制造业运营管理经验 · 资深采购与供应链管理者<br>期望职位：<strong>生产总监</strong></h2>
-      <div class="hero-stats">
-        <div class="hero-stat"><div class="hero-stat-num">15年+</div><div class="hero-stat-label">制造业经验</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">9年</div><div class="hero-stat-label">采购供应链管理</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">5+</div><div class="hero-stat-label">从0到1项目</div></div>
-      </div>
-      <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">💼 联系我</a>
-        <a href="#experience" class="btn btn-outline">📋 查看经历</a>
-      </div>
+</section>
+
+<!-- 求职意向 + 教育 -->
+<section id="job" class="section section--alt">
+  <div class="section__inner jobintent">
+    <div class="jobintent__col">
+      <h2 class="section__title">求职意向</h2>
+      <ul class="jobintent__list">
+        <li><span>目标岗位</span>采购/供应链管理 · 生产运营管理 · PMC 管理</li>
+        <li><span>期望薪资</span>20-25K</li>
+        <li><span>期望城市</span>珠海</li>
+      </ul>
     </div>
-    <div class="hero-visual">
-      <div class="hero-card">
-        <h3>核心能力</h3>
-        <div class="hero-card-item"><span class="icon">🏭</span> 新工厂/新项目从0到1全流程建设</div>
-        <div class="hero-card-item"><span class="icon">📦</span> 采购体系搭建与供应商全生命周期管理</div>
-        <div class="hero-card-item"><span class="icon">📊</span> ERP系统推行与数字化改革</div>
-        <div class="hero-card-item"><span class="icon">🛡️</span> EHS环安体系搭建与合规运营</div>
-        <div class="hero-card-item"><span class="icon">👥</span> 多部门统筹管理（采购/仓储/人事/行政/EHS）</div>
-        <div class="hero-card-item"><span class="icon">⚙️</span> 生产计件式考核体系落地执行</div>
-      </div>
+    <div class="jobintent__col">
+      <h2 class="section__title">教育背景</h2>
+      <ul class="edu">
+        <li>
+          <strong>西安电子科技大学</strong>
+          <span>工商管理 · 本科</span>
+        </li>
+        <li>
+          <strong>珠海技师学院</strong>
+          <span>机械电子工程 · 大专</span>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
-<section class="section section-alt" id="about">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">About</div>
-      <h2 class="section-title">关于我</h2>
-      <p class="section-subtitle">15年深耕制造业，从基层到部门经理，具备全面的运营管理视野</p>
+
+<!-- 联系方式 -->
+<section id="contact" class="section contact">
+  <div class="section__inner">
+    <h2 class="section__title">联系方式</h2>
+    <div class="contact__grid">
+      <div class="contact__item"><span>手机</span><a href="tel:13676095268">13676095268</a></div>
+      <div class="contact__item"><span>邮箱</span><a href="mailto:18928072000@yeah.net">18928072000@yeah.net</a></div>
+      <div class="contact__item"><span>所在地</span><p>广东珠海</p></div>
+      <div class="contact__item"><span>简历</span><a href="assets/resume.pdf" download>下载 PDF</a></div>
     </div>
-    <div class="about-grid">
-      <div class="about-image">
-        <div class="about-image-inner">
-          <div class="about-avatar">朱</div>
-          <div style="font-size: 1.2rem; font-weight: 700; color: var(--gray-800);">朱鹏</div>
-          <div style="color: var(--text-light); font-size: 0.85rem;">生产总监 / 供应链管理</div>
-        </div>
-      </div>
-      <div class="about-info">
-        <div class="section-title">朱鹏</div>
-        <div class="role-tag">🎯 期望职位：生产总监 | 行业：电子/硬件开发、半导体/芯片、医疗器械 | 薪资：20-25K</div>
-        <p>15年制造业供应链与运营管理经验，其中9年采购与供应链全盘管理经验，多部门管理经验。从基层成长为部门经理，主导过采购体系搭建、供应商开发与考核、ERP系统推行、生产计件式考核落地执行。</p>
-        <p>具备从0到1建设新工厂/新项目的全流程项目管理能力，环安部门搭建与管理。持有安全生产管理人、职业卫生管理人、消防管理人等资格证书，注册安全工程师在考。</p>
-        <div class="about-highlights">
-          <div class="about-highlight"><span class="dot"></span> 细致严谨</div>
-          <div class="about-highlight"><span class="dot"></span> 成熟稳重</div>
-          <div class="about-highlight"><span class="dot"></span> 诚恳踏实</div>
-          <div class="about-highlight"><span class="dot"></span> 吃苦耐劳</div>
-          <div class="about-highlight"><span class="dot"></span> 数据分析能力强</div>
-          <div class="about-highlight"><span class="dot"></span> 擅长生产进度管控</div>
-          <div class="about-highlight"><span class="dot"></span> 擅长控制物料库存</div>
-          <div class="about-highlight"><span class="dot"></span> 从0到1建设能力</div>
-        </div>
-      </div>
-    </div>
+    <p class="contact__foot">欢迎招聘方与合作伙伴随时联系，期待新的机会与合作。</p>
   </div>
 </section>
-<section class="section" id="experience">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Experience</div>
-      <h2 class="section-title">工作经历</h2>
-      <p class="section-subtitle">10年以上制造业管理经验，涵盖采购、供应链、PMC、EHS等多个领域</p>
-    </div>
-    <div class="exp-timeline">
-      <div class="exp-item">
-        <div class="exp-dot"></div>
-        <div class="exp-header">
-          <span class="exp-company">珠海黑冠运动器材有限公司</span>
-          <span class="exp-role">采购经理</span>
-          <div class="exp-meta">2017.01 - 至今 (8年+) | 采购部 / 管理部</div>
-        </div>
-        <div class="exp-tags">
-          <span class="exp-tag">供应商管理</span><span class="exp-tag">采购管理</span><span class="exp-tag">成本控制</span><span class="exp-tag">环境与安全行政管理</span><span class="exp-tag">ERP系统</span><span class="exp-tag">EHS管理</span>
-        </div>
-        <div class="exp-achievements">
-          <h4>✦ 主要业绩</h4>
-          <ul>
-            <li>优化采购流程，物料达成率提升至 <strong>95%以上</strong>，6年内停工待料<strong>零发生</strong></li>
-            <li>通过供应商谈判及拓展，综合降本约 <strong>15%</strong></li>
-            <li>加强跨部门沟通，优化采购及仓储流程，降低综合库存资金占用率约 <strong>40%</strong></li>
-            <li>从零组建环安部门，主导安全生产标准化建设，无重大整改及行政处罚</li>
-            <li>新工厂建设项目从规划到落地全流程高效合规运营</li>
-          </ul>
-        </div>
-        <div class="exp-detail">
-          <h4>工作内容</h4>
-          <div class="exp-detail-grid">
-            <div class="exp-detail-item"><strong>采购供应链：</strong>全流程管控供应商开发、比价、审核、订单及审批，主导年度考核与优化</div>
-            <div class="exp-detail-item"><strong>ERP推行：</strong>推动ERP系统落地，实现库存精准管控与效率提升</div>
-            <div class="exp-detail-item"><strong>降本项目：</strong>主导物料降本，主材采购成本显著下降，库存金额降低约40%</div>
-            <div class="exp-detail-item"><strong>仓储管控：</strong>负责月度/年度盘点，处理呆滞物料，保障库存数据准确</div>
-            <div class="exp-detail-item"><strong>EHS管理：</strong>任安全总监，全面负责安全生产、职业卫生与消防管理</div>
-            <div class="exp-detail-item"><strong>环保合规：</strong>统筹排污许可证管理、危废处置，主导"安评/环评三同时"建设（项目金额300万美金）</div>
-          </div>
-        </div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-dot"></div>
-        <div class="exp-header">
-          <span class="exp-company">珠海黑冠运动器材有限公司</span>
-          <span class="exp-role">PMC经理</span>
-          <div class="exp-meta">2013.07 - 2016.12 (3年6个月) | 生产计划与物料控制 / 生产设备管理</div>
-        </div>
-        <div class="exp-achievements">
-          <h4>✦ 主要业绩</h4>
-          <ul>
-            <li>产量提升近 <strong>100%</strong>，产能提升超 <strong>130%</strong>，优化产线人力降低人力需求约 <strong>30%</strong></li>
-            <li>积极推动公司三期产线投产及异地第二家工厂建设安排</li>
-            <li>因出色工作成绩，后续调任<strong>采购部经理</strong></li>
-          </ul>
-        </div>
-        <div class="exp-detail">
-          <h4>工作内容</h4>
-          <div class="exp-detail-grid">
-            <div class="exp-detail-item"><strong>计件改革：</strong>将生产车间由计时调整为计件，产量提升近100%且人力降低30%</div>
-            <div class="exp-detail-item"><strong>薪资系统：</strong>确立薪资核算标准，参与开发及推行定制薪资核算软件</div>
-            <div class="exp-detail-item"><strong>生产计划：</strong>制定及调整生产计划，提升排程计划准确率</div>
-            <div class="exp-detail-item"><strong>产线优化：</strong>优化产线布局及制程，缩短生产周期，提高设备稼动率</div>
-            <div class="exp-detail-item"><strong>质量管理：</strong>建立健全生产管理制度，提高不良品可追踪性及良品率</div>
-            <div class="exp-detail-item"><strong>跨部门协作：</strong>每周同业务、采购部门对接交货及物料计划</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="section section-alt" id="projects">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Projects</div>
-      <h2 class="section-title">项目经验</h2>
-      <p class="section-subtitle">主导多个从0到1的重大项目，涵盖新工厂建设、数字化改革、流程优化</p>
-    </div>
-    <div class="projects-grid">
-      <div class="project-card fade-in">
-        <div class="project-header"><div class="project-title">数据化改革</div><div class="project-role lead">项目组长</div></div>
-        <div class="project-meta">2025.04 - 至今</div>
-        <div class="project-achievement"><span>✦ 核心成果</span><p>云存储管理工程文档、开发企业微信小程序（设备点检、安保巡检等）、自研多款可安装手机APP并迭代数个版本，小成本实现流程自动化与管理精细化</p></div>
-        <div class="project-desc">主导公司内部工作流程优化，结合AI编程技术开发定制化APP与小程序（设备点检维护、安保巡检、水电台账、提案改善、领料发料、品质巡检、样品开发），数据保留在厂内服务器中安全可靠，打破空间限制，显著提升团队协作效率与数据管理能力。</div>
-      </div>
-      <div class="project-card fade-in">
-        <div class="project-header"><div class="project-title">肇庆黑冠新公司项目建设</div><div class="project-role lead">项目负责人</div></div>
-        <div class="project-meta">2021.05 - 2021.10</div>
-        <div class="project-achievement"><span>✦ 核心成果</span><p>如期完成新工厂投产，2022年4月完成"三同时"建设并顺利投产；节约环保设备单项成本80余万元，节约整个项目预算近150万元</p></div>
-        <div class="project-desc">为满足业务扩展需要，主导肇庆新公司全流程建设：车间布局及工序规划、生产设备规划采购、环评/安评/环保设备规划建设、排污许可证申报、工厂装修推进、新工厂多部门人员培训（同步珠海厂管理制度及理念）。</div>
-      </div>
-      <div class="project-card fade-in">
-        <div class="project-header"><div class="project-title">珠海黑冠第三期生产项目</div><div class="project-role lead">项目经理</div></div>
-        <div class="project-meta">2019.09 - 2020.02</div>
-        <div class="project-achievement"><span>✦ 核心成果</span><p>如期完成生产项目的申报及验收，实现产能扩张目标</p></div>
-        <div class="project-desc">规划产线工序布局及人员计划，推进新建项目"三同时"工作，落实环评及环保治理设施的设计与建设，验收环境治理设施，确保达到预期效果，组织制定并实施环保设施日常使用点检维护制度，申报排污许可证及后期管理。</div>
-      </div>
-      <div class="project-card fade-in">
-        <div class="project-header"><div class="project-title">推行计件制生产改革</div><div class="project-role">PMC经理</div></div>
-        <div class="project-meta">2013.09 - 2014.12</div>
-        <div class="project-achievement"><span>✦ 核心成果</span><p>单位工时产出提升近150%，年产量提升近100%，员工积极性与收入水平显著提升</p></div>
-        <div class="project-desc">主导生产管理与激励模式优化，设计绩效导向的激励方案，完善质量管控流程，试点推行并分阶段完成全部门推广，完善薪酬核算流程，确保方案合规落地，支撑公司人才吸引与业务扩张。</div>
-      </div>
-      <div class="project-card fade-in">
-        <div class="project-header"><div class="project-title">薪资核算系统定制开发</div><div class="project-role">厂务部经理</div></div>
-        <div class="project-meta">2014.03 - 2014.06</div>
-        <div class="project-achievement"><span>✦ 核心成果</span><p>计件工资核算工作从原本20天以上缩短到3天内，效率提升显著</p></div>
-        <div class="project-desc">同第三方协同配合近两个月，完成完全定制化的计件薪资核算系统开发。市面上常规软件无法满足需求，定制系统实现了精准高效的薪资核算，大幅降低人工统计工作量。</div>
-      </div>
-      <div class="project-card fade-in">
-        <div class="project-header"><div class="project-title">CNC三轴加工中心SOP编制</div><div class="project-role">项目组成员</div></div>
-        <div class="project-meta">2012.07 - 2013.07</div>
-        <div class="project-achievement"><span>✦ 核心成果</span><p>得到总经理表彰，提拔为厂长特别助理；SOP被列入公司ISO管控文件</p></div>
-        <div class="project-desc">拍摄素材编写作业标准书，历经粗装、精装、钣金、调试几道工序，前后近6个月完成E650加工中心组装作业标书。完成SOP被作为后续公司教导新员工的学习资料，并参与新员工技术培训。</div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="section" id="skills">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Skills & Certs</div>
-      <h2 class="section-title">专业技能与资质证书</h2>
-      <p class="section-subtitle">复合型管理能力与技术资质，覆盖运营、安全、数字化等多个维度</p>
-    </div>
-    <div class="skills-grid">
-      <div>
-        <div class="skills-block">
-          <h3><span class="emoji">🏭</span> 运营管理</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">采购与供应链管理</span><span class="skill-tag">生产计划与物料控制</span><span class="skill-tag">PMC管理</span><span class="skill-tag">仓储与库存管理</span><span class="skill-tag">供应商开发与考核</span><span class="skill-tag">成本控制与降本</span><span class="skill-tag">生产计件制改革</span><span class="skill-tag">产线布局优化</span>
-          </div>
-        </div>
-        <div class="skills-block">
-          <h3><span class="emoji">📊</span> 数字工具</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">ERP系统推行</span><span class="skill-tag">金蝶K3</span><span class="skill-tag">企业微信小程序开发</span><span class="skill-tag">APP开发（AI编程）</span><span class="skill-tag">数据分析</span><span class="skill-tag">薪资核算系统</span><span class="skill-tag">云存储管理</span><span class="skill-tag">流程数字化</span>
-          </div>
-        </div>
-        <div class="skills-block">
-          <h3><span class="emoji">👥</span> 综合管理</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">多部门统筹管理</span><span class="skill-tag">项目管理（从0到1）</span><span class="skill-tag">行政人事管理</span><span class="skill-tag">绩效考核体系搭建</span><span class="skill-tag">团队建设与培训</span><span class="skill-tag">跨部门协调</span><span class="skill-tag">ISO管控文件</span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="skills-block"><h3><span class="emoji">📜</span> 资质证书</h3></div>
-        <div class="cert-card"><span class="cert-icon">🛡️</span><div><h4>安全生产管理人</h4><p>全面负责企业安全生产管理体系建设</p></div></div>
-        <div class="cert-card"><span class="cert-icon">🏥</span><div><h4>职业卫生管理人</h4><p>职业卫生管理体系搭建与合规运营</p></div></div>
-        <div class="cert-card"><span class="cert-icon">🔥</span><div><h4>消防管理人</h4><p>消防安全管理体系建设与应急管理</p></div></div>
-        <div class="cert-card in-progress"><span class="cert-icon">📚</span><div><h4>注册安全工程师 <span style="font-size:0.7rem;color:var(--blue);">（在考）</span></h4><p>国家注册安全工程师执业资格考试备考中</p></div></div>
-        <div class="strengths-list">
-          <div class="strength-item">🎯 细致严谨</div><div class="strength-item">🤝 成熟稳重</div><div class="strength-item">💪 诚恳踏实</div><div class="strength-item">🏋️ 吃苦耐劳</div><div class="strength-item">📈 数据分析能力强</div><div class="strength-item">📊 擅长生产进度管控</div><div class="strength-item">📦 擅长控制物料库存</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="section section-alt" id="education">
-  <div class="container">
-    <div class="section-header"><div class="section-tag">Education</div><h2 class="section-title">教育背景</h2></div>
-    <div style="max-width: 600px; margin: 0 auto;">
-      <div class="edu-card fade-in"><div class="edu-icon">🎓</div><div class="edu-info"><h4>工商管理 · 本科</h4><div class="edu-school">西安电子科技大学</div><div class="edu-meta">非全日制本科</div><span class="edu-tag">211院校</span></div></div>
-      <div class="edu-card fade-in"><div class="edu-icon">⚙️</div><div class="edu-info"><h4>机械电子工程 · 大专</h4><div class="edu-school">珠海市技师学院</div><div class="edu-meta">2009 - 2012</div></div></div>
-    </div>
-  </div>
-</section>
-<section class="section contact" id="contact">
-  <div class="container">
-    <div class="contact-grid">
-      <div>
-        <div class="section-header"><div class="section-tag">Contact</div><h2 class="section-title">期待联系</h2><p class="section-subtitle">目前在职，考虑更好的发展机会。期待与优秀的电子/硬件开发、半导体/芯片、医疗器械企业合作。</p></div>
-        <div class="contact-items">
-          <div class="contact-item"><div class="contact-icon">📍</div><div>广东 · 珠海</div></div>
-          <div class="contact-item"><div class="contact-icon">🎯</div><div>期望职位：生产总监</div></div>
-          <div class="contact-item"><div class="contact-icon">💰</div><div>期望薪资：20-25K</div></div>
-          <div class="contact-item"><div class="contact-icon">🏭</div><div>目标行业：电子/硬件开发 · 半导体/芯片 · 医疗器械</div></div>
-        </div>
-      </div>
-      <div class="contact-cta">
-        <h3>📩 投递简历或联系我</h3>
-        <p>如果您有合适的职位机会，欢迎随时联系。我会在收到信息后第一时间回复。</p>
-        <a href="mailto:your-email@example.com" class="btn btn-primary">✉️ 发送邮件</a>
-        <p style="font-size:0.75rem;color:var(--gray-500);margin-top:1rem;text-align:center;">提示：部署前请替换为真实联系方式</p>
-      </div>
-    </div>
-  </div>
-</section>
-<footer class="footer"><p>&copy; 2025 朱鹏 · 个人主页 | 生产总监 / 供应链管理专家</p></footer>
-<script>
-const toggle=document.getElementById('navToggle'),links=document.getElementById('navLinks');
-toggle.addEventListener('click',()=>links.classList.toggle('open'));
-links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
-const sections=document.querySelectorAll('section[id]'),navAs=document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll',()=>{let c='';sections.forEach(s=>{if(scrollY>=s.offsetTop-100)c=s.getAttribute('id')});navAs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c))});
-const observer=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.15});
-document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
-</script>
+
+<footer class="footer">
+  <p>© <span id="year"></span> 朱鹏 · 个人简历网站</p>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
