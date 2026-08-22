@@ -53,10 +53,10 @@ body {
 .hero__head { display: flex; align-items: center; gap: 22px; }
 .hero__avatar {
   width: 84px; height: 84px; border-radius: 50%;
-  background: var(--blue); color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 38px; font-weight: 700; flex-shrink: 0;
+  object-fit: cover;
+  flex-shrink: 0;
   box-shadow: 0 6px 18px rgba(24,95,165,.25);
+  background: var(--blue);
 }
 .hero__name { font-size: 44px; font-weight: 700; line-height: 1.1; letter-spacing: -1px; }
 .hero__title { font-size: 18px; color: var(--blue); margin-top: 4px; font-weight: 600; }
